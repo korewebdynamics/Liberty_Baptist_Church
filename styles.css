@@ -1,0 +1,317 @@
+:root {
+    --primary-color: #002D62;    /* Royal Blue */
+    --primary-color-darker: #00234d; /* Darker Royal Blue for hover */
+    --secondary-color: #003F87; /* A slightly lighter blue for accents */
+    --light-gray: #f4f4f4;       /* Background color */
+    --dark-gray: #333;          /* Main text color */
+    --white-color: #ffffff;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Global Styles & Resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+p { margin-bottom: 1rem; }
+a { color: var(--secondary-color); text-decoration: none; }
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 3. Utility Classes */
+.page-header {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: var(--white-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* 4. Header & Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Add logo image styles if you use one */
+.navbar-brand img {
+    height: 40px; 
+    vertical-align: middle;
+}
+
+.navbar-nav {
+    display: flex;
+}
+
+.navbar-nav li {
+    margin-left: 25px;
+}
+
+.navbar-nav a {
+    color: var(--white-color);
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.navbar-nav a:hover,
+.navbar-nav a.active {
+    border-bottom-color: var(--white-color);
+}
+
+.navbar-toggler {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* 5. Hero Section (Home Page) */
+.hero {
+    background: linear-gradient(rgba(0, 45, 98, 0.7), rgba(0, 45, 98, 0.7)), url('../images/church-background.jpg'); /* Add a background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white-color);
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--white-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 6. Card Component */
+.cards-container {
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--white-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card h2, .card h3 {
+    margin-top: 0;
+}
+
+/* 7. Page-Specific Sections (About, Ministries) */
+.about-section {
+    padding: 3rem 0;
+    background: var(--white-color);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-content img {
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.ministries-section {
+    padding: 2rem 0;
+}
+
+/* 8. Contact Form & Map */
+.contact-grid {
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-form-container, .contact-info {
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--primary-color-darker);
+}
+
+.map-container {
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 9. Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* 10. Responsive Design (Media Queries) */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .hero h1 { font-size: 2.5rem; }
+
+    /* Mobile Navigation */
+    .navbar .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .navbar-toggler {
+        display: block; /* Show hamburger icon */
+    }
+
+    .navbar-collapse {
+        display: none; /* Hide menu by default */
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .navbar-collapse.active {
+        display: block; /* Show menu when toggled */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    .navbar-nav li {
+        margin: 10px 0;
+    }
+
+    /* Adjust page layouts */
+    .about-content,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
